@@ -8,7 +8,7 @@
     register: openstack
     tags:
       - osp.smoke
-         
+  - debug: var=openstack       
   - name: Curl website
     uri: 
       url: "http://{{item.public_v4}}"
@@ -19,6 +19,7 @@
     register: webpage
     tags:
       - osp.smoke
+  - debug: var=webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
