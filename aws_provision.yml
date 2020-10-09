@@ -38,7 +38,8 @@
       with_items:
         - /root/common.sh
         - /root/order_svc.sh
-
+    - name: debug
+      shell: cat /root/credential.rc
     # Using this script will always deploy environments in the us-east-1 region.
     # TODO: this shell task is not working yet!
     - name: order service on opentlc
