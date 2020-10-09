@@ -11,12 +11,12 @@ get_token() {
     : ${username?"Username not set"}
     : ${password?"password not set"}
     : ${uri?"uri not set"}
-
+    
     token_info=$(curl -s --user $username:$password \
                       -X GET -H "Accept: application/json" \
                       $uri/api/auth\
                      | jq -r '.auth_token + ";" + (.token_ttl|tostring)')
-
+    echo ${token_info}
     tok=${token_info%;*}
     tok_ttl=${token_info#*;}
 

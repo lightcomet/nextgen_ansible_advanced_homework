@@ -1,6 +1,6 @@
 #!/bin/bash
 ORIG=$(cd $(dirname $0); pwd)
-
+echo ${ORIG}
 . "${ORIG}/common.sh"
 
 IFS=";"
@@ -100,6 +100,7 @@ if [ -n "$keypairs" ]
 then
     for kp in $keypairs
     do
+        echo $kp
         k=`echo $kp|cut -f1 -d=`
         v=`echo $kp|cut -f2 -d=`
         KPS="${KPS}, \"${k}\" : \"${v}\""
