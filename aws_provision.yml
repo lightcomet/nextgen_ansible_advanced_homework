@@ -40,6 +40,9 @@
         - /root/order_svc.sh
     - name: debug
       shell: cat /root/credential.rc
+      register: ps
+
+    - debug: var=ps.stdout_lines
     # Using this script will always deploy environments in the us-east-1 region.
     # TODO: this shell task is not working yet!
     - name: order service on opentlc
